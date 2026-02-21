@@ -1,0 +1,8 @@
+{
+  "example": {
+    "type": "fire",
+    "health": 2,
+    "damage": 8,
+    "ability": ["ember", 5]
+  }
+}
