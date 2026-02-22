@@ -4,7 +4,7 @@ import json
 class Pokemon:
     def __init__(self, name):
         self.name = name
-        with open("pokemon_index.json", "r") as f:
+        with open("../data/pokemon_index.json", "r") as f:
             data = json.load(f)
             json_data = data[name]
         self.type = json_data["type"]
