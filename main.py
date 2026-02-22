@@ -1,5 +1,7 @@
 import pygame
+from pokemon import Pokemon
 
+# Basic Pygame Stuff
 pygame.init()
 screen = pygame.display.set_mode((0, 0))
 clock = pygame.time.Clock()

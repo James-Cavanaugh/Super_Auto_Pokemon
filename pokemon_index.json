@@ -1,8 +1,23 @@
 {
-  "example": {
+  "charmander": {
     "type": "fire",
     "health": 2,
     "damage": 8,
-    "ability": ["ember", 5]
+    "ability": "burn",
+    "sprite": "/assets/charmander.png"
+  },
+  "squirtle": {
+    "type": "water",
+    "health": 5,
+    "damage": 5,
+    "ability": "torrent",
+    "sprite": "/assets/squirtle.png"
+  },
+  "bulbasaur": {
+    "type": "grass",
+    "health": 8,
+    "damage": 2,
+    "ability": "leech seed",
+    "sprite": "/assets/bulbasaur.png"
   }
 }
