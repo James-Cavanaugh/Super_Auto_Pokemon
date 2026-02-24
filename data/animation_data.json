@@ -1,0 +1,12 @@
+{
+  "pallet_town": {
+    "path": "assets/title-screen/pallet_town.webp",
+    "scale_factor": 2,
+    "radius_factor": "y"
+  },
+  "lacunosa_town": {
+    "path": "assets/title-screen/lacunosa_town.png",
+    "scale_factor": 3.5,
+    "radius_factor": "y"
+  }
+}
