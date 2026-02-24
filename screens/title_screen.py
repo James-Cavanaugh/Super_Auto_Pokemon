@@ -8,6 +8,9 @@ class TitleScreen(screen.Screen):
         super().__init__(game)
         self.start_screens = ["pallet_town", "lacunosa_town"]
         self.circle_angle = 0
+        self.play_button_area = None
+        self.pokedex_button_area = None
+        self.settings_button_area = None
 
     def startup(self, game):
         pygame.time.wait(1000)
@@ -20,7 +23,6 @@ class TitleScreen(screen.Screen):
             self.game.screen.blit(disclaimer, rect)
             pygame.display.flip()
             disclaimer.set_alpha(i)
-            print(f"Increase: {i}")
             pygame.time.wait(20)
         pygame.time.wait(2000)
         for i in range(255, -10, -5):
@@ -28,7 +30,6 @@ class TitleScreen(screen.Screen):
             self.game.screen.blit(disclaimer, rect)
             pygame.display.flip()
             disclaimer.set_alpha(i)
-            print(f"Decrease: {i}")
             pygame.time.wait(20)
         pygame.time.wait(1000)
         game.active_screen = "Title Screen"
@@ -56,8 +57,33 @@ class TitleScreen(screen.Screen):
         x = rect.centerx + math.cos(self.circle_angle) * radius
         y = rect.centery + math.sin(self.circle_angle) * radius
         rect.center = (int(x), int(y))
-        self.game.screen.fill((0, 0, 0))
         self.game.screen.blit(background, rect)
+
+    def create_buttons(self):
+        title_card = pygame.image.load("assets/title-screen/title_card.png")
+        screen_center = self.game.screen.get_rect().center
+        screen_bottom = self.game.screen.get_rect().height
+        title_card_rect = title_card.get_rect(center=(screen_center[0], screen_center[1] / 2.5))
+        self.game.screen.blit(title_card, title_card_rect)
+        # Play Button
+        play_button = pygame.image.load("assets/title-screen/start_button.png")
+        play_button = pygame.transform.scale_by(play_button, 2).convert_alpha()
+        play_button_rect = play_button.get_rect(center=(screen_center[0], screen_bottom / 2.25))
+        self.play_button_area = play_button_rect
+        self.game.screen.blit(play_button, play_button_rect)
+        # PokeDex
+        pokedex_button = pygame.image.load("assets/title-screen/pokedex_button.png")
+        pokedex_button = pygame.transform.scale_by(pokedex_button, 2).convert_alpha()
+        pokedex_button_rect = pokedex_button.get_rect(center=(screen_center[0], screen_bottom / 1.75))
+        self.pokedex_button_area = pokedex_button_rect
+        self.game.screen.blit(pokedex_button, pokedex_button_rect)
+        # Settings
+        settings_button = pygame.image.load("assets/title-screen/settings_button.png")
+        settings_button = pygame.transform.scale_by(settings_button, 2).convert_alpha()
+        settings_button_rect = settings_button.get_rect(center=(screen_center[0], screen_bottom / 1.42))
+        self.settings_button_area = settings_button_rect
+        self.game.screen.blit(settings_button, settings_button_rect)
+
 
     def __str__(self):
         return "Title Screen"
