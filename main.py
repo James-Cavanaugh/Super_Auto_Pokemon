@@ -15,9 +15,11 @@ class Game:
         self.title_screen = title_screen.TitleScreen(self)
 
     def run(self, *args):
+        self.title_screen.startup(self)
         while self.running:
-            if str(self.active_screen == "Base Class"):
-                self.active_screen = str(self.title_screen)
+            if self.active_screen == "Base Class":
+                pass
+            elif self.active_screen == "Title Screen":
                 self.title_screen.run_animations("pallet_town")
 
             for event in pygame.event.get():

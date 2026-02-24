@@ -2,8 +2,9 @@
 class Screen:
     def __init__(self, game):
         self.game = game
+        self.music_playing = False
 
-    def startup(self):
+    def startup(self, game):
         raise NotImplementedError("startup not implemented in screen class")
 
     def run_animations(self, animation_data_entry):
